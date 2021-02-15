@@ -12,12 +12,12 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Delete(new Car{Id = 6});
-
-            //foreach (var car in carManager.GetCarsByColorId(1))
-            //{
-            //    Console.WriteLine(car.Id+ "-"+car.Description);
-            //}
+            //carManager.Delete(new Car { Id = 6 });
+            
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.Id + "-" + car.Description + "-" + car.BrandName + "-" + car.ColorName + "-" + car.DailyPrice);
+            }
             //foreach (var car in carManager.GetAll())
             //{
             //    Console.WriteLine(car.Id + " " + car.BrandId + " " + car.ColorId + " " + car.ModelYear + " " + car.DailyPrice + " " + car.Description);
