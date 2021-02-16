@@ -6,13 +6,8 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface ICarService
+    public interface ICarService : IBaseService<Car>
     {
-        IDataResult<List<Car>> GetAll();
-        IDataResult<Car> GetById(int id);
-        IResult Add(Car car);
-        IResult Delete(Car car);
-
         IDataResult<List<Car>> GetCarsByBrandId(int brandId);
         IDataResult<List<Car>> GetCarsByColorId(int colorId);
     }

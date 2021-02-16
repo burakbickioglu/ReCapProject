@@ -12,10 +12,20 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            //carManager.Delete(new Car { Id = 6 });
 
-            var result = carManager.GetById(2);
-            Console.WriteLine(result.Data.Id + " " + result.Data.BrandId + " " + result.Data.ColorId + " " + result.Data.ModelYear + " " + result.Data.DailyPrice + " " + result.Data.Description);
+            var result = carManager.GetAll();
+            if (result.Success)
+            {
+                foreach (var car in carManager.GetAll().Data)
+                {
+                    Console.WriteLine(car.Id + " " + car.BrandId + " " + car.ColorId + " " + car.ModelYear + " " + car.DailyPrice + " " + car.Description);
+                }
+            }
+            Console.WriteLine(result.Message);
+
+            //carManager.Delete(new Car { Id = 6 });
+            //var result = carManager.GetById(2);
+            //Console.WriteLine(result.Data.Id + " " + result.Data.BrandId + " " + result.Data.ColorId + " " + result.Data.ModelYear + " " + result.Data.DailyPrice + " " + result.Data.Description);
 
             //if (result.Success)
             //{
@@ -25,7 +35,6 @@ namespace ConsoleTest
             //    }
             //}
 
-            Console.WriteLine(result.Message);
 
             //foreach (var car in carManager.GetCarDetails())
             //{
